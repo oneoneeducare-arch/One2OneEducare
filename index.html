@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One2One Educare</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#333;
+text-align:center;
+overflow-x:hidden;
+}
+
+section{
+padding:70px 15px;
+}
+
+h2{
+font-size:34px;
+color:#6a3f98;
+margin-bottom:20px;
+}
+
+p{
+max-width:850px;
+margin:auto;
+line-height:1.9;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:white;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.06);
+flex-wrap:wrap;
+}
+
+nav img{
+width:80px;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav a{
+text-decoration:none;
+color:#6a3f98;
+font-weight:600;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#8b5fc4;
+}
+
+header{
+background:linear-gradient(135deg,#6a3f98,#8b5fc4);
+color:white;
+padding:90px 15px;
+position:relative;
+overflow:hidden;
+}
+
+header::before{
+content:'';
+position:absolute;
+width:350px;
+height:350px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+top:-120px;
+left:-80px;
+}
+
+header::after{
+content:'';
+position:absolute;
+width:280px;
+height:280px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+bottom:-120px;
+right:-70px;
+}
+
+.hero-logo{
+width:250px;
+max-width:90%;
+margin-bottom:20px;
+animation:float 4s ease-in-out infinite;
+position:relative;
+z-index:2;
+}
+
+.hero-badge{
+display:inline-block;
+background:rgba(255,255,255,0.15);
+padding:10px 18px;
+border-radius:30px;
+margin-bottom:20px;
+font-size:14px;
+backdrop-filter:blur(10px);
+position:relative;
+z-index:2;
+}
+
+header h1{
+font-size:44px;
+max-width:850px;
+margin:auto;
+line-height:1.4;
+position:relative;
+z-index:2;
+}
+
+header p{
+margin-top:20px;
+position:relative;
+z-index:2;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border-radius:35px;
+text-decoration:none;
+font-weight:600;
+margin:12px 6px;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.primary-btn{
+background:white;
+color:#6a3f98;
+}
+
+.whatsapp-btn{
+background:#25D366;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.hero-stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+position:relative;
+z-index:2;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.15);
+padding:20px 28px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+min-width:160px;
+animation:fadeUp 1s ease;
+}
+
+.stat-box h3{
+font-size:32px;
+margin-bottom:5px;
+}
+
+.stat-box p{
+font-size:14px;
+color:#f0e8ff;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:22px;
+margin-top:35px;
+}
+
+.card{
+background:white;
+padding:25px;
+width:290px;
+max-width:90%;
+border-radius:18px;
+box-shadow:0 8px 22px rgba(0,0,0,0.08);
+transition:0.4s;
+cursor:pointer;
+animation:fadeUp 0.8s ease;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 14px 28px rgba(106,63,152,0.15);
+}
+
+.details{
+display:none;
+margin-top:14px;
+font-size:14px;
+line-height:1.8;
+color:#555;
+}
+
+.card.active .details{
+display:block;
+}
+
+form{
+max-width:500px;
+margin:auto;
+margin-top:30px;
+}
+
+input, textarea{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:12px;
+border:1px solid #ccc;
+font-family:'Poppins',sans-serif;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+background:#6a3f98;
+color:white;
+border-radius:35px;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#572f82;
+}
+
+footer{
+background:linear-gradient(135deg,#4b216f,#6a3f98);
+color:white;
+padding:60px 20px;
+}
+
+.contact-highlight{
+margin-top:25px;
+}
+
+.contact-highlight span{
+display:block;
+margin:12px auto;
+background:white;
+color:#6a3f98;
+padding:14px;
+max-width:400px;
+border-radius:30px;
+font-weight:600;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:26px;
+text-decoration:none;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.owl-mascot{
+position:fixed;
+bottom:95px;
+right:20px;
+width:75px;
+cursor:pointer;
+animation:bounce 2s infinite;
+z-index:999;
+}
+
+.owl-bubble{
+position:fixed;
+bottom:175px;
+right:20px;
+background:white;
+padding:12px 16px;
+border-radius:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+font-size:14px;
+display:none;
+max-width:200px;
+color:#6a3f98;
+z-index:999;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+header h1{
+font-size:30px;
+}
+
+h2{
+font-size:26px;
+}
+
+nav{
+padding:15px;
+}
+
+nav ul{
+margin-top:10px;
+}
+
+.hero-logo{
+width:180px;
+}
+
+.card{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<img src="logo.png">
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<header>
+
+<img src="logo white.png" class="hero-logo">
+
+<div class="hero-badge">
+🌍 Trusted by Students Across India & Middle East
+</div>
+
+<h1>
+Personalized Online Tuition for Academic Excellence
+</h1>
+
+<p>
+Expert tutors for KG to Plus Two students across CBSE, ICSE & Kerala SCERT.
+Individual 1-to-1 sessions, small group classes, flexible timings, and free demo classes available worldwide.
+</p>
+
+<a href="#contact" class="btn primary-btn">
+🎓 Book Free Trial Class
+</a>
+
+<a href="https://wa.me/918714001172" target="_blank" class="btn whatsapp-btn">
+💬 Chat on WhatsApp
+</a>
+
+<div class="hero-stats">
+
+<div class="stat-box">
+<h3>1000+</h3>
+<p>Students Guided</p>
+</div>
+
+<div class="stat-box">
+<h3>95%</h3>
+<p>Parent Satisfaction</p>
+</div>
+
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Academic Support</p>
+</div>
+
+</div>
+
+</header>
+
+<section id="about">
+
+<h2>About One2One Educare</h2>
+
+<p>
+One2One Educare is a professional online tutoring platform designed to support students from KG to Plus Two with personalized academic guidance. We provide structured learning support for CBSE, ICSE and Kerala SCERT students through live interactive classes and experienced tutors.
+</p>
+
+</section>
+
+<section id="courses">
+
+<h2>Subjects & Grades</h2>
+
+<div class="cards">
+
+<div class="card" onclick="toggle(this)">
+<b>📖 KG to Grade 10</b>
+<div class="details">
+Strong foundation classes for Maths, English, Science and Social Science with concept-focused learning.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>🔬 +1 & +2 Science</b>
+<div class="details">
+Physics, Chemistry, Biology, Maths and Computer Science with exam-oriented preparation.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>💼 Commerce</b>
+<div class="details">
+Accountancy, Economics and Business Studies classes with simplified learning methods.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>🌎 Humanities</b>
+<div class="details">
+History, Sociology, Political Science and structured academic support.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>🗣️ Language Classes</b>
+<div class="details">
+Spoken English, Hindi, Malayalam and communication skill development.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Why Choose Us</h2>
+
+<div class="cards">
+
+<div class="card" onclick="toggle(this)">
+<b>👨‍🏫 Experienced Tutors</b>
+<div class="details">
+Highly qualified teachers experienced in handling students of different learning levels.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>🎯 Personalized Attention</b>
+<div class="details">
+Small batch and individual sessions ensure better interaction and understanding.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>🕒 Flexible Timings</b>
+<div class="details">
+Suitable class schedules for India and Middle East students.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>👨‍🎓 1-to-1 Sessions</b>
+<div class="details">
+Dedicated personal learning sessions focused completely on individual improvement.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="results">
+
+<h2>Results & Success Stories</h2>
+
+<div class="cards">
+
+<div class="card">
+<b>📈 Academic Improvement</b>
+<div class="details" style="display:block;">
+Students improve confidence, academic performance and consistency through structured support.
+</div>
+</div>
+
+<div class="card">
+<b>🌍 International Students</b>
+<div class="details" style="display:block;">
+Students from UAE, Qatar, Oman and Kuwait successfully attend our online sessions.
+</div>
+</div>
+
+<div class="card">
+<b>🧠 Personalized Learning</b>
+<div class="details" style="display:block;">
+Individual attention helps students understand concepts faster and perform better.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Parent Testimonials</h2>
+
+<div class="cards">
+
+<div class="card">
+<b>⭐⭐⭐⭐⭐</b>
+<div class="details" style="display:block;">
+“The personal attention helped my child improve confidence and performance.”
+<br><br>
+— Parent, Dubai
+</div>
+</div>
+
+<div class="card">
+<b>⭐⭐⭐⭐⭐</b>
+<div class="details" style="display:block;">
+“Professional tutors and flexible timings for Middle East students.”
+<br><br>
+— Parent, Kerala
+</div>
+</div>
+
+<div class="card">
+<b>⭐⭐⭐⭐⭐</b>
+<div class="details" style="display:block;">
+“One of the best online tuition experiences.”
+<br><br>
+— Parent, Qatar
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="faq">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="cards">
+
+<div class="card" onclick="toggle(this)">
+<b>Do you provide free demo classes?</b>
+<div class="details">
+Yes, free demo classes are available before enrollment.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>Which syllabus do you teach?</b>
+<div class="details">
+CBSE, ICSE and Kerala SCERT syllabus are covered.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>Can Middle East students join?</b>
+<div class="details">
+Yes, students from UAE, Qatar, Oman and Kuwait can join online.
+</div>
+</div>
+
+<div class="card" onclick="toggle(this)">
+<b>Do you offer individual classes?</b>
+<div class="details">
+Yes, both 1-to-1 and small group classes are available.
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Book Free Demo Class</h2>
+
+<p>
+Fill the form below and our team will contact you instantly.
+</p>
+
+<form onsubmit="sendToWhatsApp(); return false;">
+
+<input type="text" id="name" placeholder="Student Name" required>
+
+<input type="text" id="grade" placeholder="Class / Grade" required>
+
+<input type="text" id="subject" placeholder="Subject Interested" required>
+
+<textarea id="message" placeholder="Any specific requirement"></textarea>
+
+<button type="submit">
+Book Demo via WhatsApp
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<h2 style="color:white;">
+One2One Educare
+</h2>
+
+<p style="color:#f3eefe;">
+Empowering students through personalized online learning experiences designed for academic excellence and long-term success.
+</p>
+
+<div class="contact-highlight">
+
+<span>📞 +91 87140 01172</span>
+
+<span>✉️ one.oneeducare@gmail.com</span>
+
+</div>
+
+<p style="margin-top:25px;color:#eee;">
+© 2026 One2One Educare. All Rights Reserved.
+</p>
+
+</footer>
+
+<a href="https://wa.me/918714001172" class="whatsapp" target="_blank">
+💬
+</a>
+
+<img src="owl.png" class="owl-mascot" onclick="openWhatsApp()">
+
+<div class="owl-bubble" id="owlBubble">
+Need help? Book a free demo!
+</div>
+
+<script>
+
+function toggle(el){
+el.classList.toggle("active");
+}
+
+function sendToWhatsApp(){
+
+var name=document.getElementById("name").value;
+var grade=document.getElementById("grade").value;
+var subject=document.getElementById("subject").value;
+var message=document.getElementById("message").value;
+
+var url="https://wa.me/918714001172?text="
++"New Demo Booking:%0a"
++"Name: "+name+"%0a"
++"Class: "+grade+"%0a"
++"Subject: "+subject+"%0a"
++"Message: "+message;
+
+window.open(url,'_blank');
+
+}
+
+function openWhatsApp(){
+window.open('https://wa.me/918714001172','_blank');
+}
+
+const bubble=document.getElementById("owlBubble");
+
+setTimeout(()=>{
+bubble.style.display="block";
+},5000);
+
+</script>
+
+</body>
+</html>
